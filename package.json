@@ -1,0 +1,37 @@
+{
+  "name": "notifier",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "nodemon --config \"./nodemon.json\"/",
+    "start:dev:staging": "DOTENV_PATH=.env-staging yarn start:dev",
+    "start:prod": "ORM_ROOT_DIR=build node --experimental-modules ./build/app/index.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.3",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.2.0",
+    "fastify-express": "^0.1.0",
+    "fastify-sentry": "^1.4.0",
+    "fastify-static": "^3.3.0",
+    "kafkajs": "^1.15.0",
+    "morgan": "~1.9.1",
+    "sib-api-v3-sdk": "^8.2.1",
+    "typescript": "3.9.5",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^14.0.13",
+    "lint-staged": ">=10",
+    "nodemon": "^2.0.1",
+    "prettier": "^2.2.1",
+    "ts-node": "8.10.1",
+    "tslint": "^6.1.2"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
+}
