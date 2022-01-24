@@ -35,7 +35,7 @@ const main = async () => {
         process.on("SIGINT", signal.shutdown);
 
         // Listen
-        router.listen(Number(process.env.SERVER_PORT || 3100), process.env.SERVER_HOST, (err?) => {
+        router.listen(Number(process.env.SERVER_PORT) || 3100, process.env.SERVER_HOST, (err?) => {
           if (err) {
             throw err;
           }
