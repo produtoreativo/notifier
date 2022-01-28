@@ -33,15 +33,14 @@ const main = async () => {
         // Apply callbacks
         process.on("SIGTERM", signal.shutdown);
         process.on("SIGINT", signal.shutdown);
-        const port_heroku = Number(process.env.SERVER_PORT) || Number(process.env.PORT) || 3100;
         // Listen
-        router.listen(port_heroku, process.env.SERVER_HOST, (err?) => {
+        router.listen(process.env.PORT || 3001, process.env.SERVER_HOST, (err?) => {
           if (err) {
             throw err;
           }
 
           log.info(
-            `notifier is running at http://${process.env.SERVER_HOST}:${port_heroku} in ${port_heroku} mode ${process.env.NODE_ENV}`,
+            `notifier is running at http://${process.env.SERVER_HOST}:${process.env.PORT} in ${process.env.PORT} mode ${process.env.NODE_ENV}`,
           );
         });
       })
