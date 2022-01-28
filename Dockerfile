@@ -10,5 +10,5 @@ RUN yarn install
 RUN rm -rf ./build
 RUN yarn build
 
-EXPOSE 3100
+EXPOSE 3001
 CMD ["yarn", "start:prod"]
